@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Receitas</title>
+    <!-- Folha de estilos do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/receitas.css">
+</head>
+<body class="bg-warning" onload="preencheCatalogo()">
+
+    <!-- Cabeçalho -->
+    <h1 class="text-center my-4">Cardápio</h1>
+    <!-- Área Principal -->
+    <main>
+        <section id="pnlCatalogo" class="container-fluid d-flex flex-wrap justify-content-around">
+            <!-- Receitas serão carregadas dinamicamente aqui -->
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Luizão Lanches. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Organizando os dados de receitas em um vetor de elementos JSON
+        const receitas = [
+            {
+                titulo: "X-Bacon",
+                imagem: "imagens/x-bacon.png",
+                preparo: "Frite o bacon até ficar crocante e reserve. Grelhe o hambúrguer, adicione o queijo por cima e deixe derreter. Toste o pão com manteiga na frigideira. Monte o sanduíche com maionese, hambúrguer e bacon.",
+                ingredientes: ["1 Pão", "1 hambúrguer (carne bovina)", "2 fatias de bacon", "1 fatia de queijo muçarela", "Alface e tomate"]
+            },
+            {
+                titulo: "X-Salada",
+                imagem: "imagens/amoda.png",
+                preparo: "Grelhe o hambúrguer e adicione o queijo até derreter. Toste o pão com manteiga na frigideira. Monte o sanduíche com alface, tomate, maionese, hambúrguer e queijo.",
+                ingredientes: ["1 pão de hambúrguer", "1 hambúrguer (carne bovina)", "1 fatia de queijo muçarela", "2 folhas de alface", "2 rodelas de tomate"]
+            },
+            {
+                titulo: "X-Burguer",
+                imagem: "imagens/x-burguer22.png",
+                preparo: "Grelhe o hambúrguer e adicione o queijo até derreter. Toste o pão com manteiga na frigideira. Monte o sanduíche com maionese e ketchup. Coloque o hambúrguer com queijo entre as metades do pão.",
+                ingredientes: ["1 pão de hambúrguer", "1 hambúrguer (carne bovina)", "1 fatia de queijo muçarela", "2 rodelas de tomate"]
+            }
+        ];
+
+        // Função para gerar a lista de ingredientes em HTML
+        function getListaIngredientes(receita) {
+            return `<ul>${receita.ingredientes.map(ing => `<li>${ing}</li>`).reduce((html, item) => html + item, '')}</ul>`;
+        }
+
+        // Função para gerar o card de cada receita
+        function getCard(receita) {
+            return `
+                <div class="receita-painel card m-3" style="width: 250px;">
+                    <img src="${receita.imagem}" class="card-img-top" alt="${receita.titulo}">
+                    <div class="card-body">
+                        <h5 class="card-title">${receita.titulo}</h5>
+                        <div class="card-text">
+                            ${getListaIngredientes(receita)}
+                            <hr>
+                            <p>${receita.preparo}</p>
+                        </div>
+                    </div>
+                </div>`;
+        }
+
+        // Função para preencher o catálogo de receitas
+        function preencheCatalogo() {
+            const pnlCatalogo = document.getElementById("pnlCatalogo");
+            pnlCatalogo.innerHTML = receitas.map(receita => getCard(receita)).reduce((html, card) => html + card, '');
+        }
+    </script>
+
+    <!-- Inclusão do Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    background-color: #f0eaea; /* Cor de fundo do body */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens horizontalmente */
+    background-color: #EDCD47; /* Cor de fundo do header */
+    padding: 20px; /* Ajuste conforme necessário */
+}
+
+header h1 {
+    font-size: 2.5rem; /* Aumenta o tamanho da fonte do título */
+    color: #333; /* Para um contraste melhor */
+}
+
+.navbar {
+    width: 100%; /* Garante que a navbar ocupe toda a largura */
+    background-color: #EDCD47; /* Cor de fundo do menu */
+    padding: 10px; /* Reduzindo o espaçamento */
+}
+
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Exibe os itens em linha */
+    justify-content: center; /* Centraliza os itens do menu */
+}
+
+.nav-item {
+    margin-right: 15px; /* Espaçamento entre os itens */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #080808; /* Cor do texto do link */
+    font-weight: bold;
+    padding: 5px 10px; /* Adicionando um pouco de padding */
+}
+
+.nav-link:hover {
+    text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+
+.active .nav-link {
+    color: #FFFFFF; /* Cor para o item ativo */
+    background-color: #EDCD47; /* Fundo amarelo para realçar */
+}
+
+.receitas-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f0eaea; /* Mesmo tom de fundo */
+}
+
+.receita-painel {
+    border: 1px solid #EDCD47;
+    padding: 15px;
+    width: 300px;
+    text-align: center;
+    background-color: #f0eaea;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.receita-painel:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.receita-painel img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.receita-painel h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.receita-painel ul {
+    text-align: left;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.receita-painel p {
+    text-align: left;
+}
+
+main {
+    padding: 50px; /* Ajuste conforme necessário */
+}
+
+footer {
+    text-align: center;
+    background-color: #EDCD47; /* Cor de fundo do footer */
+    margin-top: 15px;
+    padding: 10px 0; /* Espaçamento no footer */
+}
+
+@media (max-width: 768px) {
+    .receitas-container {
+        flex-direction: column; /* Ajusta a direção para coluna em telas pequenas */
+        align-items: center;
+    }
+
+    .receita-painel {
+        width: 100%; /* Painéis ocupam 100% da largura em telas pequenas */
+    }
+}
